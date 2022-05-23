@@ -1,10 +1,13 @@
 import './App.css';
+import { Button } from '@mui/material';
 
 
-function App() {
+const App = () => {
+
   return (
-    <div className="App">
-      
+    <div>
+      <h1>Hello World!</h1>
+      <Button variant="contained" color="primary">example</Button>
     </div>
   );
 }
