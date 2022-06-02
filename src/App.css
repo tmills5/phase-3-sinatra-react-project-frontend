@@ -1,0 +1,22 @@
+body {
+    height: 100vh;
+}
+
+.navbar {
+    position: relative;
+    overflow: hidden;
+
+}
+
+footer {
+    height: 10rem;
+    width: 100%
+}
+
+h1 {
+    color: red;
+}
+
+h2 {
+    color:blue
+}

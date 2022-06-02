@@ -1,41 +1,25 @@
-// import React from "react";
+import React from "react";
+import {Navbar, Container, Nav} from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
-// import Button from '@mui/material/Button';
-
-
-
-// const NavBar = () => {
-
-//     return (
-//         <>
-//         <Button variant="outlined">Outlined</Button>
-//         </>
-//     );
-// };
-
-// export default NavBar;
-
-import React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-// import Button from '@mui/material/Button';
-// import IconButton from '@mui/material/IconButton';
 
 
 const NavBar = () => {
-  return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
-        <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            The Cocktail Companion
-          </Typography>
-        </Toolbar>
-      </AppBar>
-    </Box>
-  );
-}
+
+    return (
+      <Navbar bg="dark" variant="dark" fixed="top" className="navbar">
+        <Container>
+          <Navbar.Brand as={Link} to="/">The Cocktail Companion</Navbar.Brand>
+            <Nav className="me-auto">
+              <Nav.Item>
+                <Nav.Link as={Link} to='/add'>Add Cocktail</Nav.Link>
+              </Nav.Item>
+              
+              <Nav.Link as={Link} to='/mycocktails'>My Cocktails</Nav.Link>
+            </Nav>
+        </Container>
+    </Navbar>
+    );
+};
 
 export default NavBar;

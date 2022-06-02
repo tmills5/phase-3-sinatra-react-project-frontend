@@ -18,7 +18,7 @@ const CocktailCard = ( {cocktail} ) => {
     <Card.Text>
       Reviews
     </Card.Text>
-    <Button variant="primary">Like</Button>
+    <Button variant="primary">Add to My Cocktails</Button>
   </Card.Body>
 </Card>
   )
