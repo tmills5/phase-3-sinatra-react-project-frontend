@@ -30,7 +30,7 @@ const NavBar = () => {
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Drinksy : Discover, Review, and Save your Favorite Cocktails
+            The Cocktail Companion
           </Typography>
         </Toolbar>
       </AppBar>

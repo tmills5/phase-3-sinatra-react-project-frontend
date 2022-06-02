@@ -1,105 +1,28 @@
 import React from 'react';
-import { styled } from '@mui/material/styles';
-import Card from '@mui/material/Card';
-import LocalBarSharpIcon from '@mui/icons-material/LocalBarSharp';
-import CardHeader from '@mui/material/CardHeader';
-import CardMedia from '@mui/material/CardMedia';
-import CardContent from '@mui/material/CardContent';
-import CardActions from '@mui/material/CardActions';
-import Collapse from '@mui/material/Collapse';
-import Avatar from '@mui/material/Avatar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import { red } from '@mui/material/colors';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
+import { Card, Button } from "react-bootstrap";
 
-const ExpandMore = styled((props) => {
-  const { expand, ...other } = props;
-  return <IconButton {...other} />;
-})(({ theme, expand }) => ({
-  transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
-  marginLeft: 'auto',
-  transition: theme.transitions.create('transform', {
-    duration: theme.transitions.duration.shortest,
-  }),
-}));
 
-function CocktailCard( {cocktail} ) {
-    const { name, category, image, glass } = cocktail;
+const CocktailCard = ( {cocktail} ) => {
+  const {name, category, image, glass} = cocktail;
 
-    const [expanded, setExpanded] = React.useState(false);
 
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
+  return(
 
-  return (
-    <Card sx={{ maxWidth: 345 }}>
-      <CardHeader
-        avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="cocktail">
-            <LocalBarSharpIcon />
-          </Avatar>
-        }
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
-        title={name}
-        subheader=""
-      />
-
-      <CardMedia
-        component="img"
-        height="194"
-        image={image}
-        alt={cocktail.name}
-      />
-
-      <CardContent>
-        <Typography variant="body2" color="text.secondary">
-          {category}
-        </Typography>
-      </CardContent>
-
-      <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
-        </IconButton>
-
-        <ExpandMore
-          expand={expanded}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
-        >
-          <ExpandMoreIcon />
-        </ExpandMore>
-      </CardActions>
-
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <Typography paragraph>Glass: {glass}</Typography>
-          <Typography paragraph>
-            {/* {instructions} */}
-          </Typography>
-          <Typography paragraph>
-            
-          </Typography>
-          <Typography paragraph>
-            {/* {ingredients} */}
-          </Typography>
-          <Typography>
-            
-          </Typography>
-        </CardContent>
-      </Collapse>
-    </Card>
-  );
-}
+    <Card style={{ width: "15rem" }}>
+  <Card.Img variant="top" src={image} />
+  <Card.Body>
+    <Card.Title>{name}</Card.Title>
+    <Card.Text>
+      {category} {glass}
+    </Card.Text>
+    <Card.Text>
+      Reviews
+    </Card.Text>
+    <Button variant="primary">Like</Button>
+  </Card.Body>
+</Card>
+  )
+};
 
 
 
