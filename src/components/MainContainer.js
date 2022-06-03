@@ -4,7 +4,7 @@ import { Container, Row, Col} from 'react-bootstrap'
 
 
 
-const MainContainer = ({cocktails}) => {
+const MainContainer = ( {cocktails, deleteCocktailCard} ) => {
 
 
   return(
@@ -14,7 +14,7 @@ const MainContainer = ({cocktails}) => {
         {cocktails.map(cocktail=> {
           return(
             <Col key={cocktail.id}>
-              <CocktailCard  cocktail={cocktail} />
+              <CocktailCard  cocktail={cocktail} deleteCocktailCard={deleteCocktailCard} />
             </Col>)
           })}
       </Row>

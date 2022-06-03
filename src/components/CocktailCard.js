@@ -2,8 +2,8 @@ import React from 'react';
 import { Card, Button } from "react-bootstrap";
 
 
-const CocktailCard = ( {cocktail} ) => {
-  const {name, category, image, glass} = cocktail;
+const CocktailCard = ( {cocktail, deleteCocktailCard} ) => {
+  const {id, name, category, image, glass} = cocktail;
 
 
   return(
@@ -19,6 +19,7 @@ const CocktailCard = ( {cocktail} ) => {
       Reviews
     </Card.Text>
     <Button variant="primary">Add to My Cocktails</Button>
+    <Button variant="outline-danger" onClick={()=> deleteCocktailCard(id)}>Delete</Button>
   </Card.Body>
 </Card>
   )

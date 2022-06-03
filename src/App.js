@@ -21,7 +21,7 @@ const App = () => {
   
 useEffect(() => {
   
-  // get all cocktails to start
+//get all cocktails to start--------------------
 
   fetch('http://localhost:9292/cocktails')
     .then(response => response.json())
@@ -29,7 +29,7 @@ useEffect(() => {
       setCocktails(cocktailsData)
     })
 
-//get all reviews
+//get all reviews------------------------
 
   fetch('http://localhost:9292/reviews')
     .then(response => response.json())
@@ -37,7 +37,7 @@ useEffect(() => {
       setReviews(reviewsData)
     })
 
-//get all users
+//get all users-----------------
 
   fetch('http://localhost:9292/users')
     .then(response => response.json())
@@ -51,13 +51,31 @@ useEffect(() => {
 //console.log(reviews)
 //console.log(users)
 
+//Delete Cocktail Card------------------
+
+  function deleteCocktailCard(cocktail) {
+    fetch(`http://localhost:9292/cocktails/${cocktail.id}`, {
+      method: "DELETE"
+    })
+    .then(response=>response.json())
+    .then(()=> {
+      const newCocktailArray = cocktails.filter((filteredCocktail)=> filteredCocktail.id !== cocktail.id)
+      setCocktails(newCocktailArray);
+    })
+  };
+
+
+
+
+
+
   return (
     <>
       <Router>
         <NavBar />
 
         <Routes>
-            <Route path='/' element={ <MainContainer cocktails={cocktails} /> } />
+            <Route path='/' element={ <MainContainer cocktails={cocktails} deleteCocktailCard={deleteCocktailCard} /> } />
             <Route path='/add' element={ <AddCocktail cocktails={cocktails} setCocktails={setCocktails} /> } />
             <Route path='/mycocktails' element={ <MyCocktails />} />
         </Routes>
