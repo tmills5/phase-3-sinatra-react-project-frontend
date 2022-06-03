@@ -1,11 +1,10 @@
 import React from "react";
 
+
 const MyCocktails = () => {
 
     return (
-        <>
-        
-        </>
+       <></>
     );
 };
 

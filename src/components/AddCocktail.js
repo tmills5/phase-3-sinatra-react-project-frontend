@@ -1,31 +1,10 @@
 import React from "react";
+import AddForm from "./AddForm"
 
-const AddCocktail = () => {
+const AddCocktail = ( {cocktails, setCocktails} ) => {
 
     return (
-       <h1>
-        WORK
-        WORK
-        WORK
-        WORK
-        WORK
-        WORK
-        WORK
-        WORK
-        WORK
-        WORK
-        WORK
-        WORK
-        WORK
-        WORK
-        WORK
-        WORK
-        WORK
-        WORK
-        WORK
-        
-       </h1>
-        
+        <AddForm cocktails={cocktails} setCocktails={setCocktails}/>
     );
 };
 

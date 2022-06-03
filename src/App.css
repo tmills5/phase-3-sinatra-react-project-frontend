@@ -8,15 +8,9 @@ body {
 
 }
 
+
 footer {
+    position: fixed;
     height: 10rem;
     width: 100%
-}
-
-h1 {
-    color: red;
-}
-
-h2 {
-    color:blue
 }

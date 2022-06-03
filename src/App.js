@@ -58,7 +58,7 @@ useEffect(() => {
 
         <Routes>
             <Route path='/' element={ <MainContainer cocktails={cocktails} /> } />
-            <Route path='/add' element={ <AddCocktail /> } />
+            <Route path='/add' element={ <AddCocktail cocktails={cocktails} setCocktails={setCocktails} /> } />
             <Route path='/mycocktails' element={ <MyCocktails />} />
         </Routes>
 
