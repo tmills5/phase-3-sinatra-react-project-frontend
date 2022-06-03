@@ -10,7 +10,7 @@ const MainContainer = ({cocktails}) => {
   return(
 
     <Container fluid="md" className='card-container'>
-      <Row md={4} >
+      <Row md={5} >
         {cocktails.map(cocktail=> {
           return(
             <Col key={cocktail.id}>
