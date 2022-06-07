@@ -59,7 +59,8 @@ useEffect(() => {
       headers: {'Accept': 'application/json'}
     })
     .then(()=> {
-      setCocktails(cocktails=>cocktails.filter(c=>c.id !== id))
+      let updatedCocktailsArray = cocktails.filter(cocktail => cocktail.id !== id)
+      setCocktails(updatedCocktailsArray)
     })
   };
 
