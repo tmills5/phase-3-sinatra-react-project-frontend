@@ -9,17 +9,17 @@ const CocktailCard = ( {cocktail, deleteCocktailCard } ) => {
 
   return(
 
-    <Card className='card' style={{ width: "15rem" }}>
+    <Card className='card' style={{ width: "10rem" }}>
   <Card.Img variant="top" src={image} />
   <Card.Body>
     <Card.Title>{name}</Card.Title>
     <Card.Text>
-      {category} {glass}
+      Category: {category} 
     </Card.Text>
     <Card.Text>
-      Reviews
+      Glass: {glass}
     </Card.Text>
-    <Button variant="primary" className='card-button'>Add to My Cocktails</Button>
+    <Button variant="primary" className='card-button'>Reviews</Button>
     <Button variant="danger" className='card-button' onClick={()=>deleteCocktailCard(id)}>Delete</Button>
     {/* <Button variant="warning" className='card-button' onClick={toEditPage}>Edit</Button> */}
   </Card.Body>
