@@ -9,7 +9,7 @@ const CocktailCard = ( {cocktail, deleteCocktailCard } ) => {
 
   return(
 
-    <Card style={{ width: "15rem" }}>
+    <Card className='card' style={{ width: "15rem" }}>
   <Card.Img variant="top" src={image} />
   <Card.Body>
     <Card.Title>{name}</Card.Title>
