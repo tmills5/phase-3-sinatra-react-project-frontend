@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useNavigate} from "react-router-dom";
 import './App.css';
 import NavBar from "./components/NavBar";
 import MainContainer from "./components/MainContainer";
-import AddCocktail from "./components/AddCocktail";
+// import AddCocktail from "./components/AddCocktail";
 import MyCocktails from "./components/MyCocktails";
+
+// import EditCocktail from "./components/EditCocktail";
 // import Footer from "./components/Footer";
-
-
 
 
 
@@ -64,7 +64,7 @@ useEffect(() => {
     })
   };
 
-
+//Handle Edit Cocktail Card-------------------
 
 
 
@@ -75,8 +75,8 @@ useEffect(() => {
         <NavBar />
 
         <Routes>
-            <Route path='/' element={ <MainContainer cocktails={cocktails} deleteCocktailCard={deleteCocktailCard} /> } />
-            <Route path='/add' element={ <AddCocktail cocktails={cocktails} setCocktails={setCocktails} /> } />
+            <Route path='/' element={ <MainContainer cocktails={cocktails} setCocktails={setCocktails} deleteCocktailCard={deleteCocktailCard} /> } />
+            {/* <Route path='/add' element={ <AddCocktail cocktails={cocktails} setCocktails={setCocktails} /> } /> */}
             <Route path='/mycocktails' element={ <MyCocktails />} />
         </Routes>
 

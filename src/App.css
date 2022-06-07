@@ -14,3 +14,11 @@ footer {
     height: 10rem;
     width: 100%
 }
+
+.card-button {
+    margin: 5px;
+}
+
+input {
+    margin: 5px;
+}

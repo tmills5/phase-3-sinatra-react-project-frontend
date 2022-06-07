@@ -31,8 +31,12 @@ const AddForm = ( {cocktails, setCocktails} ) => {
   function handleSubmit(event) {
     event.preventDefault();
 
-    let newCocktail = { newCocktailName, newCocktailCategory, newCocktailImage, newCocktailGlass };
-console.log(newCocktail) //!-----WORKS!
+    let newCocktail = { newCocktailName,
+      newCocktailCategory,
+      newCocktailImage,
+      newCocktailGlass };
+
+//console.log(newCocktail) //!-----WORKS!
 
     fetch("http://localhost:9292/cocktails", {
       method: "POST",

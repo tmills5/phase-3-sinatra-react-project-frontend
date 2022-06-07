@@ -1,9 +1,10 @@
 import React from 'react';
 import { Card, Button } from "react-bootstrap";
+// import EditCocktail from './EditCocktail';
 
 
-const CocktailCard = ( {cocktail, deleteCocktailCard} ) => {
-  const {id, name, category, image, glass} = cocktail;
+const CocktailCard = ( {cocktail, deleteCocktailCard } ) => {
+  const { id, name, category, image, glass} = cocktail;
 
 
   return(
@@ -18,8 +19,9 @@ const CocktailCard = ( {cocktail, deleteCocktailCard} ) => {
     <Card.Text>
       Reviews
     </Card.Text>
-    <Button variant="primary">Add to My Cocktails</Button>
-    <Button variant="outline-danger" onClick={()=>deleteCocktailCard(id)}>Delete</Button>
+    <Button variant="primary" className='card-button'>Add to My Cocktails</Button>
+    <Button variant="danger" className='card-button' onClick={()=>deleteCocktailCard(id)}>Delete</Button>
+    {/* <Button variant="warning" className='card-button' onClick={toEditPage}>Edit</Button> */}
   </Card.Body>
 </Card>
   )
