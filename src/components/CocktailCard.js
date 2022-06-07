@@ -19,7 +19,7 @@ const CocktailCard = ( {cocktail, deleteCocktailCard} ) => {
       Reviews
     </Card.Text>
     <Button variant="primary">Add to My Cocktails</Button>
-    <Button variant="outline-danger" onClick={()=> deleteCocktailCard(id)}>Delete</Button>
+    <Button variant="outline-danger" onClick={()=>deleteCocktailCard(id)}>Delete</Button>
   </Card.Body>
 </Card>
   )

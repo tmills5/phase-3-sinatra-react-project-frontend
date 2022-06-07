@@ -5,7 +5,7 @@ import NavBar from "./components/NavBar";
 import MainContainer from "./components/MainContainer";
 import AddCocktail from "./components/AddCocktail";
 import MyCocktails from "./components/MyCocktails";
-import Footer from "./components/Footer";
+// import Footer from "./components/Footer";
 
 
 
@@ -15,8 +15,8 @@ import Footer from "./components/Footer";
 
 const App = () => {
   const [cocktails, setCocktails] = useState([]);
-  const [reviews, setReviews] = useState([]);
-  const [users, setUsers] = useState([]);
+  // const [reviews, setReviews] = useState([]);
+  // const [users, setUsers] = useState([]);
 
   
 useEffect(() => {
@@ -31,19 +31,19 @@ useEffect(() => {
 
 //get all reviews------------------------
 
-  fetch('http://localhost:9292/reviews')
-    .then(response => response.json())
-    .then(reviewsData => {  //console.log(reviewsData)
-      setReviews(reviewsData)
-    })
+  // fetch('http://localhost:9292/reviews')
+  //   .then(response => response.json())
+  //   .then(reviewsData => {  //console.log(reviewsData)
+  //     setReviews(reviewsData)
+  //   })
 
 //get all users-----------------
 
-  fetch('http://localhost:9292/users')
-    .then(response => response.json())
-    .then(usersData => {  //console.log(usersData)
-      setUsers(usersData)
-    })
+  // fetch('http://localhost:9292/users')
+  //   .then(response => response.json())
+  //   .then(usersData => {  //console.log(usersData)
+  //     setUsers(usersData)
+  //   })
 
 }, [])
 
@@ -53,14 +53,13 @@ useEffect(() => {
 
 //Delete Cocktail Card------------------
 
-  function deleteCocktailCard(cocktail) {
-    fetch(`http://localhost:9292/cocktails/${cocktail.id}`, {
-      method: "DELETE"
+  function deleteCocktailCard(id) {
+    fetch(`http://localhost:9292/cocktails/${id}`, {
+      method: "DELETE",
+      headers: {'Accept': 'application/json'}
     })
-    .then(response=>response.json())
     .then(()=> {
-      const newCocktailArray = cocktails.filter((filteredCocktail)=> filteredCocktail.id !== cocktail.id)
-      setCocktails(newCocktailArray);
+      setCocktails(cocktails=>cocktails.filter(c=>c.id !== id))
     })
   };
 
@@ -80,7 +79,7 @@ useEffect(() => {
             <Route path='/mycocktails' element={ <MyCocktails />} />
         </Routes>
 
-        <Footer />
+        {/* <Footer /> */}
       </Router>
     </>
   );
