@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import './App.css';
 import NavBar from "./components/NavBar";
 import MainContainer from "./components/MainContainer";
-// import AddCocktail from "./components/AddCocktail";
 import MyCocktails from "./components/MyCocktails";
 
 
@@ -15,8 +14,7 @@ import MyCocktails from "./components/MyCocktails";
 
 const App = () => {
   const [cocktails, setCocktails] = useState([]);
-  const [reviews, setReviews] = useState([]);
-  // const [users, setUsers] = useState([]);
+  // const [reviews, setReviews] = useState([]);
 
   
 useEffect(() => {
@@ -31,21 +29,12 @@ useEffect(() => {
 
 //get all reviews------------------------
 
-  fetch('http://localhost:9292/reviews')
-    .then(response => response.json())
-    .then(reviewsData => {  //console.log(reviewsData)
-      setReviews(reviewsData)
-      //console.log(reviewsData)
-    })
-
-//get all users-----------------
-
-  fetch('http://localhost:9292/users')
-    .then(response => response.json())
-    .then(usersData => {  //console.log(usersData) ---WORKS!
-      // setUsers(usersData)
-      //console.log(users)
-    })
+  // fetch('http://localhost:9292/reviews')
+  //   .then(response => response.json())
+  //   .then(reviewsData => {  //console.log(reviewsData)
+  //     setReviews(reviewsData)
+  //     //console.log(reviewsData)
+  //   })
 
 }, [])
 
@@ -81,9 +70,8 @@ useEffect(() => {
                 cocktails={cocktails} 
                 setCocktails={setCocktails} 
                 deleteCocktailCard={deleteCocktailCard} 
-                reviews={reviews}
+                // getIndividualCocktailReviews={getIndividualCocktailReviews}
                 /> } />
-            {/* <Route path='/add' element={ <AddCocktail cocktails={cocktails} setCocktails={setCocktails} /> } /> */}
             <Route path='/mycocktails' element={ <MyCocktails />} />
         </Routes>
 

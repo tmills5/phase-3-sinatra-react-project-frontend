@@ -5,8 +5,8 @@ import AddForm from './AddForm';
 
 
 
-const MainContainer = ( {cocktails, setCocktails, deleteCocktailCard, reviews} ) => {
-//console.log(reviews)
+const MainContainer = ( {cocktails, setCocktails, deleteCocktailCard, getIndividualCocktailReviews} ) => {
+
 
   return(
 
@@ -15,24 +15,21 @@ const MainContainer = ( {cocktails, setCocktails, deleteCocktailCard, reviews} )
       <AddForm cocktails={cocktails} setCocktails={setCocktails} />
 
       <Row md={5} >
-        
 
         {cocktails.map(cocktail=> {
-
-        {reviews.map(review=> (
-          review.cocktail_id === cocktail.cocktail_id
-        ))}
-
-   
+          
           return(
             <Col key={cocktail.id}>
+
               <CocktailCard  
                 cocktail={cocktail} 
+                getIndividualCocktailReviews={getIndividualCocktailReviews}
                 deleteCocktailCard={deleteCocktailCard}  
-                review={review}
                 />
+
             </Col>)
-          })}
+        })}
+
       </Row>
       
 </Container>
