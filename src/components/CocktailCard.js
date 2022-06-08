@@ -1,10 +1,12 @@
 import React from 'react';
 import { Card, Button } from "react-bootstrap";
-// import EditCocktail from './EditCocktail';
 
 
-const CocktailCard = ( {cocktail, deleteCocktailCard } ) => {
+const CocktailCard = ( {cocktail, deleteCocktailCard, users } ) => {
   const { id, name, category, image, glass} = cocktail;
+// console.log(users)
+
+// const {user_name} = user
 
 
   return(
@@ -19,9 +21,8 @@ const CocktailCard = ( {cocktail, deleteCocktailCard } ) => {
     <Card.Text>
       Glass: {glass}
     </Card.Text>
-    <Button variant="primary" className='card-button'>Reviews</Button>
+      {/* {cocktail.id.reviews} */}
     <Button variant="danger" className='card-button' onClick={()=>deleteCocktailCard(id)}>Delete</Button>
-    {/* <Button variant="warning" className='card-button' onClick={toEditPage}>Edit</Button> */}
   </Card.Body>
 </Card>
   )

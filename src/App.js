@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Routes, Route, useNavigate} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import './App.css';
 import NavBar from "./components/NavBar";
 import MainContainer from "./components/MainContainer";
 // import AddCocktail from "./components/AddCocktail";
 import MyCocktails from "./components/MyCocktails";
 
-// import EditCocktail from "./components/EditCocktail";
+
 // import Footer from "./components/Footer";
 
 
@@ -15,7 +15,7 @@ import MyCocktails from "./components/MyCocktails";
 
 const App = () => {
   const [cocktails, setCocktails] = useState([]);
-  // const [reviews, setReviews] = useState([]);
+  const [reviews, setReviews] = useState([]);
   // const [users, setUsers] = useState([]);
 
   
@@ -31,25 +31,27 @@ useEffect(() => {
 
 //get all reviews------------------------
 
-  // fetch('http://localhost:9292/reviews')
-  //   .then(response => response.json())
-  //   .then(reviewsData => {  //console.log(reviewsData)
-  //     setReviews(reviewsData)
-  //   })
+  fetch('http://localhost:9292/reviews')
+    .then(response => response.json())
+    .then(reviewsData => {  //console.log(reviewsData)
+      setReviews(reviewsData)
+      //console.log(reviewsData)
+    })
 
 //get all users-----------------
 
-  // fetch('http://localhost:9292/users')
-  //   .then(response => response.json())
-  //   .then(usersData => {  //console.log(usersData)
-  //     setUsers(usersData)
-  //   })
+  fetch('http://localhost:9292/users')
+    .then(response => response.json())
+    .then(usersData => {  //console.log(usersData) ---WORKS!
+      // setUsers(usersData)
+      //console.log(users)
+    })
 
 }, [])
 
 //console.log(cocktails)
-//console.log(reviews)
-//console.log(users)
+
+
 
 //Delete Cocktail Card------------------
 
@@ -64,9 +66,6 @@ useEffect(() => {
     })
   };
 
-//Handle Edit Cocktail Card-------------------
-
-
 
 
   return (
@@ -75,7 +74,15 @@ useEffect(() => {
         <NavBar />
 
         <Routes>
-            <Route path='/' element={ <MainContainer cocktails={cocktails} setCocktails={setCocktails} deleteCocktailCard={deleteCocktailCard} /> } />
+            <Route 
+            path='/' 
+            element={ 
+              <MainContainer 
+                cocktails={cocktails} 
+                setCocktails={setCocktails} 
+                deleteCocktailCard={deleteCocktailCard} 
+                reviews={reviews}
+                /> } />
             {/* <Route path='/add' element={ <AddCocktail cocktails={cocktails} setCocktails={setCocktails} /> } /> */}
             <Route path='/mycocktails' element={ <MyCocktails />} />
         </Routes>
