@@ -1,12 +1,26 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Card, Button } from "react-bootstrap";
 
 
-const CocktailCard = ( {cocktail, deleteCocktailCard, getIndividualCocktailReviews} ) => {
-  const { id, cocktail_name, category, image, glass} = cocktail;
-  // const [showReviews, setShowReviews] = useState(false);
-
+const CocktailCard = ( {cocktail, deleteCocktailCard, eachReview} ) => {
+  const {id, cocktail_name, category, image, glass} = cocktail;
   
+ //console.log(eachReview)
+
+ let score = eachReview.map(obj=>{
+   return (
+     <div key={obj.id}>{obj.score}</div>
+    
+   )
+ })
+
+ let comment = eachReview.map(obj=>{
+   return (
+    <div key={obj.id}>{obj.comment}</div>
+   )
+ })
+
+
 
   return(
 
@@ -20,11 +34,12 @@ const CocktailCard = ( {cocktail, deleteCocktailCard, getIndividualCocktailRevie
     <Card.Text>
       Glass: {glass}
     </Card.Text>
+      Recent Scores: {score}
+    <div>
+      {comment}
+    </div>
     <Button variant="danger" className='card-button' onClick={()=>deleteCocktailCard(id)}>Delete</Button>
-    <Button>Reviews</Button>
   </Card.Body>
-
-  
 </Card>
   )
 };

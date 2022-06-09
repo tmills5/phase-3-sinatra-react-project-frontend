@@ -14,7 +14,7 @@ import MyCocktails from "./components/MyCocktails";
 
 const App = () => {
   const [cocktails, setCocktails] = useState([]);
-  // const [reviews, setReviews] = useState([]);
+  const [reviews, setReviews] = useState([]);
 
   
 useEffect(() => {
@@ -29,17 +29,17 @@ useEffect(() => {
 
 //get all reviews------------------------
 
-  // fetch('http://localhost:9292/reviews')
-  //   .then(response => response.json())
-  //   .then(reviewsData => {  //console.log(reviewsData)
-  //     setReviews(reviewsData)
-  //     //console.log(reviewsData)
-  //   })
+  fetch('http://localhost:9292/reviews')
+    .then(response => response.json())
+    .then(reviewsData => {  //console.log(reviewsData)
+      setReviews(reviewsData)
+      //console.log(reviewsData)
+    })
 
 }, [])
 
 //console.log(cocktails)
-
+//console.log(reviews)
 
 
 //Delete Cocktail Card------------------
@@ -69,7 +69,9 @@ useEffect(() => {
               <MainContainer 
                 cocktails={cocktails} 
                 setCocktails={setCocktails} 
-                deleteCocktailCard={deleteCocktailCard} 
+                deleteCocktailCard={deleteCocktailCard}
+                reviews={reviews}
+                setReviews={setReviews}
                 // getIndividualCocktailReviews={getIndividualCocktailReviews}
                 /> } />
             <Route path='/mycocktails' element={ <MyCocktails />} />
