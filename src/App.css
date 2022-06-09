@@ -1,5 +1,7 @@
 body {
-    height: 100vh;
+    height: 100%;
+    background-image: linear-gradient(gray, blue);
+    background-repeat: no-repeat;
 }
 
 .navbar {

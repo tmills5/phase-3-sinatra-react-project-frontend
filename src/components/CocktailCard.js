@@ -9,7 +9,7 @@ const CocktailCard = ( {cocktail, deleteCocktailCard, eachReview} ) => {
 
  let score = eachReview.map(obj=>{
    return (
-     <div >{obj.score} out of 10</div>
+     <div key={obj.id}>{obj.score} out of 10</div>
     
    )
  })
