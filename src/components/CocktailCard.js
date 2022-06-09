@@ -9,14 +9,14 @@ const CocktailCard = ( {cocktail, deleteCocktailCard, eachReview} ) => {
 
  let score = eachReview.map(obj=>{
    return (
-     <div key={obj.id}>{obj.score}</div>
+     <div key={obj.id}>{obj.score} out of 10</div>
     
    )
  })
 
  let comment = eachReview.map(obj=>{
    return (
-    <div key={obj.id}>{obj.comment}</div>
+    <li>{obj.comment}</li>
    )
  })
 
@@ -36,6 +36,7 @@ const CocktailCard = ( {cocktail, deleteCocktailCard, eachReview} ) => {
     </Card.Text>
       Recent Scores: {score}
     <div>
+      Comments:
       {comment}
     </div>
     <Button variant="danger" className='card-button' onClick={()=>deleteCocktailCard(id)}>Delete</Button>
