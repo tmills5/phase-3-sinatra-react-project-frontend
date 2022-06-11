@@ -74,7 +74,7 @@ useEffect(() => {
                 setReviews={setReviews}
                 // getIndividualCocktailReviews={getIndividualCocktailReviews}
                 /> } />
-            <Route path='/mycocktails' element={ <MyCocktails />} />
+            {/* <Route path='/mycocktails' element={ <MyCocktails />} /> */}
         </Routes>
 
         {/* <Footer /> */}
