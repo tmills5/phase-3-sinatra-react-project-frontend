@@ -36,13 +36,13 @@ const AddForm = ( {cocktails, setCocktails} ) => {
       newCocktailImage,
       newCocktailGlass };
 
-//console.log(newCocktail) //!-----WORKS!
+console.log(newCocktail) //!-----WORKS!
 
     fetch("http://localhost:9292/cocktails", {
       method: "POST",
       headers: {"Content-type": "application/json"},
       body: JSON.stringify({
-        name: newCocktailName,
+        cocktail_name: newCocktailName,
         category: newCocktailCategory,
         image: newCocktailImage,
         glass: newCocktailGlass
