@@ -1,13 +1,19 @@
 import React from 'react';
+
 import CocktailCard from './CocktailCard';
 import { Container, Row, Col} from 'react-bootstrap';
 import AddForm from './AddForm';
 
 
 
-const MainContainer = ( {cocktails, setCocktails, deleteCocktailCard, reviews} ) => {
+
+const MainContainer = ( {cocktails, setCocktails, deleteCocktailCard, reviews, navigate} ) => {
+  
+
 
 //console.log(eachReview)
+
+
 
   return(
 
@@ -30,6 +36,7 @@ const MainContainer = ( {cocktails, setCocktails, deleteCocktailCard, reviews} )
                 cocktail={cocktail} 
                 deleteCocktailCard={deleteCocktailCard}  
                 eachReview={eachReview}
+                navigate={navigate}
                 />
             </Col>)
         })}

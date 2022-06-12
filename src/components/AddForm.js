@@ -42,7 +42,7 @@ console.log(newCocktail) //!-----WORKS!
       method: "POST",
       headers: {"Content-type": "application/json"},
       body: JSON.stringify({
-        cocktail_name: newCocktailName,
+        name: newCocktailName,
         category: newCocktailCategory,
         image: newCocktailImage,
         glass: newCocktailGlass

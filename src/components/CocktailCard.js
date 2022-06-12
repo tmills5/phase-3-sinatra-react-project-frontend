@@ -2,9 +2,10 @@ import React from 'react';
 import { Card, Button } from "react-bootstrap";
 
 
-const CocktailCard = ( {cocktail, deleteCocktailCard, eachReview} ) => {
+
+const CocktailCard = ( {cocktail, deleteCocktailCard, eachReview, navigate} ) => {
   const {id, cocktail_name, category, image, glass} = cocktail;
-  
+
  //console.log(eachReview)
 
  let score = eachReview.map(obj=>{
@@ -16,7 +17,7 @@ const CocktailCard = ( {cocktail, deleteCocktailCard, eachReview} ) => {
 
  let comment = eachReview.map(obj=>{
    return (
-    <li>{obj.comment}</li>
+    <li key={obj.id}>{obj.comment}</li>
    )
  })
 
@@ -40,6 +41,7 @@ const CocktailCard = ( {cocktail, deleteCocktailCard, eachReview} ) => {
       {comment}
     </div>
     <Button variant="danger" className='card-button' onClick={()=>deleteCocktailCard(id)}>Delete</Button>
+    <Button variant="warning" className='card-button' onClick={()=>{navigate('/EditCocktailForm')}}>Edit</Button>
   </Card.Body>
 </Card>
   )
