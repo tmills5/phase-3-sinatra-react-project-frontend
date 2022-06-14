@@ -42,7 +42,7 @@ console.log(newCocktail) //!-----WORKS!
       method: "POST",
       headers: {"Content-type": "application/json"},
       body: JSON.stringify({
-        name: newCocktailName,
+        cocktail_name: newCocktailName,
         category: newCocktailCategory,
         image: newCocktailImage,
         glass: newCocktailGlass
@@ -54,7 +54,7 @@ console.log(newCocktail)
       const addedCocktail = [newCocktail, ...cocktails]
 
       setCocktails(addedCocktail);
-//console.log(addedCocktail)
+console.log(addedCocktail)
 
       setNewCocktailName("");
       setNewCocktailCategory("");
