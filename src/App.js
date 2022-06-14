@@ -3,7 +3,7 @@ import { Routes, Route, useNavigate} from "react-router-dom";
 import './App.css';
 import NavBar from "./components/NavBar";
 import MainContainer from "./components/MainContainer";
-// import EditCocktailForm from "./components/EditCocktailForm";
+import EditCocktailForm from "./components/EditCocktailForm";
 
 
 // import Footer from "./components/Footer";
@@ -75,7 +75,7 @@ useEffect(() => {
                 setReviews={setReviews}
                 navigate={navigate}
                 /> } />
-            {/* <Route path='/EditCocktailForm' element={ <EditCocktailForm cocktails={cocktails} setCocktails={setCocktails} navigate={navigate} />} /> */}
+            <Route path='/EditCocktailForm' element={ <EditCocktailForm cocktails={cocktails} setCocktails={setCocktails} navigate={navigate} />} />
         </Routes>
 
         {/* <Footer /> */}
