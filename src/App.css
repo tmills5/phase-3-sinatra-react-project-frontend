@@ -27,3 +27,7 @@ input {
 .card {
     margin: 5px;
 }
+
+img {
+    max-width: 200px;
+}
