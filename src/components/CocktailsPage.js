@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-// import AddForm from "./AddForm";
 import NewCocktail from "./NewCocktail";
 import CocktailList from "./CocktailList";
 
@@ -42,6 +41,7 @@ const CocktailsPage = ( {reviews} ) => {
             <NewCocktail reviews={reviews} cocktails={cocktails} setCocktails={setCocktails}/>
             <CocktailList
                 cocktails={cocktails}
+                reviews={reviews}
                 deleteCocktail={deleteCocktail}
                 onUpdateCocktail={handleUpdateCocktail}
             />

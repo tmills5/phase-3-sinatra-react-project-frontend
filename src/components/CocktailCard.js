@@ -3,7 +3,7 @@ import EditCocktailForm from './EditCocktailForm';
 
 
 
-const CocktailCard = ( {cocktail, deleteCocktail, onUpdateCocktail} ) => {
+const CocktailCard = ( {cocktail, deleteCocktail, onUpdateCocktail, eachReview} ) => {
   const {id, cocktail_name, image} = cocktail;
   const [isEditing, setIsEditing] = useState(false);
 
@@ -22,20 +22,14 @@ const CocktailCard = ( {cocktail, deleteCocktail, onUpdateCocktail} ) => {
   }
 
 
-//  console.log(eachReview)
+  //console.log(eachReview)
 
-//  let score = eachReview.map(obj=>{
-//    return (
-//      <div key={obj.id}>{obj.score} out of 10</div>
-    
-//    )
-//  })
 
-//  let comment = eachReview.map(obj=>{
-//    return (
-//     <li key={obj.id}>{obj.comment}</li>
-//    )
-//  })
+ let comment = eachReview.map(obj=>{
+   return (
+    <li key={obj.id}>{obj.comment}</li>
+   )
+ })
 
   
 
@@ -48,7 +42,10 @@ const CocktailCard = ( {cocktail, deleteCocktail, onUpdateCocktail} ) => {
       />
       ) : (
         <div>
-            <img src={image || "https://images.pexels.com/photos/1283219/pexels-photo-1283219.jpeg?auto=compress&cs=tinysrgb&w=1600"} alt="drink pic" /> - {cocktail_name}
+            <img 
+            src={image || "https://images.pexels.com/photos/1283219/pexels-photo-1283219.jpeg?auto=compress&cs=tinysrgb&w=1600"} 
+            alt="drink pic" /> ------ {cocktail_name}
+            {comment}
             <button onClick={()=> setIsEditing((isEditing)=> !isEditing)}>Edit</button>
             <button onClick={handleDelete}>Delete</button>
         </div>
