@@ -36,7 +36,7 @@ const getReviews = () => {
 };
 
   //console.log(cocktails)
-  console.log(reviews)
+  //console.log(reviews)
 
 
   return (
