@@ -3,24 +3,8 @@ import CocktailCard from './CocktailCard';
 
 
 
-const CocktailList = ( {cocktails, deleteCocktail, onUpdateCocktail, reviews} ) => {
+const CocktailList = ( {cocktails, deleteCocktail, onUpdateCocktail, reviews, setReviews} ) => {
   
-
-//console.log(eachReview)
-  // const renderCocktails = cocktails.map(cocktail => {
-  //   const {id, cocktail_name} = cocktail;
-  //   return(
-  //     <>
-  //     <li key={id}>
-  //       <Link to={`/cocktails/${id}`}>{cocktail_name}</Link>
-  //     </li>
-
-        
-  //     </>
-      
-  //   )
-    
-  // })
 
 
   return(
@@ -30,7 +14,7 @@ const CocktailList = ( {cocktails, deleteCocktail, onUpdateCocktail, reviews} ) 
       {cocktails.map(cocktail => {
         let eachReview = reviews.filter(review => {
           if (review.cocktail_id === cocktail.id) {
-            return review
+            return review 
           } else return null
         })
         return(
@@ -40,6 +24,8 @@ const CocktailList = ( {cocktails, deleteCocktail, onUpdateCocktail, reviews} ) 
           deleteCocktail={deleteCocktail}
           onUpdateCocktail={onUpdateCocktail}
           eachReview={eachReview}
+          reviews={reviews}
+          setReviews={setReviews}
         />
         )
       })}

@@ -1,11 +1,13 @@
+import { Reviews } from '@mui/icons-material';
 import React, { useState } from 'react';
 import EditCocktailForm from './EditCocktailForm';
 
 
 
-const CocktailCard = ( {cocktail, deleteCocktail, onUpdateCocktail, eachReview} ) => {
+const CocktailCard = ( {cocktail, deleteCocktail, onUpdateCocktail, eachReview, setReviews, reviews} ) => {
   const {id, cocktail_name, image} = cocktail;
   const [isEditing, setIsEditing] = useState(false);
+  const [newComment, setNewComment] = useState('');
 
   const handleCocktailUpdate = (updatedCocktail) => {
     setIsEditing(false);
@@ -21,8 +23,28 @@ const CocktailCard = ( {cocktail, deleteCocktail, onUpdateCocktail, eachReview} 
     )
   }
 
+  const handleReviewSubmit = (e) => {
+    e.preventDefault();
 
-  //console.log(eachReview)
+    let newReview = {
+      comment: newComment
+    }
+
+    fetch(`http://localhost:9292/cocktails/${id}`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-type": "application/json",
+    },
+    body: JSON.stringify(newReview)
+    })
+    .then(r=>r.json())
+    .then(newReview => {
+      setReviews([...reviews, newReview])
+      setNewComment("")
+    })
+  };
+
 
 
  let comment = eachReview.map(obj=>{
@@ -31,7 +53,6 @@ const CocktailCard = ( {cocktail, deleteCocktail, onUpdateCocktail, eachReview} 
    )
  })
 
-  
 
   return( 
     <div>
@@ -42,42 +63,21 @@ const CocktailCard = ( {cocktail, deleteCocktail, onUpdateCocktail, eachReview} 
       />
       ) : (
         <div>
+          --- {cocktail_name} ---
             <img 
             src={image || "https://images.pexels.com/photos/1283219/pexels-photo-1283219.jpeg?auto=compress&cs=tinysrgb&w=1600"} 
-            alt="drink pic" /> ------ {cocktail_name}
+            alt="drink pic" /> 
             {comment}
             <button onClick={()=> setIsEditing((isEditing)=> !isEditing)}>Edit</button>
             <button onClick={handleDelete}>Delete</button>
+            <form onSubmit={handleReviewSubmit}>
+              <input type="text" placeholder="Add Review..." value={newComment} onChange={(e)=>setNewComment(e.target.value)}/>
+            </form>
         </div>
       )}
     </div>
   )
 };
-//  <Card className='card' style={{ width: "10rem" }}>
-//   <Card.Img variant="top" src={image} />
-//   <Card.Body>
-//     <Card.Title>{cocktail_name}</Card.Title>
-//     <Card.Text>
-//       Category: {category} 
-//     </Card.Text>
-//     <Card.Text>
-//       Glass: {glass}
-//     </Card.Text>
-//       Recent Scores: {score}
-//     <div>
-//       Comments:
-//       {comment}
-//     </div>
-//     <Button variant="danger" className='card-button' onClick={()=>deleteCocktailCard(id)}>Delete</Button>
-//     <Link to={`/cocktails/${id}`}>EDIT</Link>
-//     {/* <Button variant="warning" className='card-button' path={`/cocktails/${id}`}>Edit</Button> */}
-    
-//    </Card.Body>
-
-//    {/* <EditCocktailForm /> */}
-//  </Card>
-
-
 
 
 export default CocktailCard;

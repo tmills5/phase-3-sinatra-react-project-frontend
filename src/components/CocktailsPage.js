@@ -3,22 +3,8 @@ import NewCocktail from "./NewCocktail";
 import CocktailList from "./CocktailList";
 
 
+const CocktailsPage = ( {cocktails, setCocktails, reviews, setReviews} ) => {
 
-
-
-const CocktailsPage = ( {reviews} ) => {
-    const [cocktails, setCocktails] = useState([]);
-
-    //Get all cocktails
-
-    useEffect(() => {
-        fetch("http://localhost:9292/cocktails")
-          .then((resp) => resp.json())
-          .then((cocktails) => setCocktails(cocktails));
-      }, []);
-    
-
-    
       function handleUpdateCocktail(updatedCocktail) {
         const updatedCocktails = cocktails.map((cocktail) => {
           if (cocktail.id === updatedCocktail.id) {
@@ -38,26 +24,14 @@ const CocktailsPage = ( {reviews} ) => {
 
     return(
         <div className="App">
-            <NewCocktail reviews={reviews} cocktails={cocktails} setCocktails={setCocktails}/>
+            <NewCocktail cocktails={cocktails} setCocktails={setCocktails}/>
             <CocktailList
                 cocktails={cocktails}
                 reviews={reviews}
+                setReviews={setReviews}
                 deleteCocktail={deleteCocktail}
                 onUpdateCocktail={handleUpdateCocktail}
             />
-            
-     
-
-            {/* <AddForm cocktails={cocktails} setCocktails={setCocktails} /> */}
-
-            {/* <CocktailList cocktails={cocktails} setCocktails={setCocktails} reviews={reviews}/>
-
-            <Routes>
-                <Route path={"/:id"} element={<CocktailCard cocktails={cocktails}/>} />
-            </Routes>
-            
-             */}
-  
         </div>
         
     )
