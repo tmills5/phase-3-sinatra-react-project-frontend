@@ -18,9 +18,7 @@ const CocktailsPage = ( {reviews} ) => {
           .then((cocktails) => setCocktails(cocktails));
       }, []);
     
-      const addNewcocktail = (cocktail) => {
-        setCocktails([...cocktails, cocktail]);
-      };
+
     
       function handleUpdateCocktail(updatedCocktail) {
         const updatedCocktails = cocktails.map((cocktail) => {
@@ -38,14 +36,16 @@ const CocktailsPage = ( {reviews} ) => {
         setCocktails(updatedCocktails);
       };
 
+
     return(
         <div className="App">
+            <NewCocktail reviews={reviews} cocktails={cocktails} setCocktails={setCocktails}/>
             <CocktailList
                 cocktails={cocktails}
                 deleteCocktail={deleteCocktail}
                 onUpdateCocktail={handleUpdateCocktail}
             />
-            <NewCocktail reviews={reviews} addNewcocktail={addNewcocktail}/>
+            
      
 
             {/* <AddForm cocktails={cocktails} setCocktails={setCocktails} /> */}

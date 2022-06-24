@@ -48,7 +48,7 @@ const CocktailCard = ( {cocktail, deleteCocktail, onUpdateCocktail} ) => {
       />
       ) : (
         <div>
-            <img src={image} alt="drink" /> - {cocktail_name}
+            <img src={image || "https://images.pexels.com/photos/1283219/pexels-photo-1283219.jpeg?auto=compress&cs=tinysrgb&w=1600"} alt="drink pic" /> - {cocktail_name}
             <button onClick={()=> setIsEditing((isEditing)=> !isEditing)}>Edit</button>
             <button onClick={handleDelete}>Delete</button>
         </div>

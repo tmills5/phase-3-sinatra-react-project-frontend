@@ -10,10 +10,9 @@ const App = () => {
   const [reviews, setReviews] = useState([]);
 
 
-useEffect(() => {
-  
-//get all reviews------------------------
 
+//get all reviews------------------------
+useEffect(() => {
   fetch('http://localhost:9292/reviews')
     .then(response => response.json())
     .then(reviewsData => {  //console.log(reviewsData)
@@ -22,7 +21,6 @@ useEffect(() => {
     })
 
 }, [])
-
 
 //console.log(reviews)
 
