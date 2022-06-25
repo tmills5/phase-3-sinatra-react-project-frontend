@@ -1,16 +1,28 @@
 import React from 'react';
 import CocktailCard from './CocktailCard';
+import {Grid, Box, Paper, styled} from '@mui/material'
 
 
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+}));
 
 const CocktailList = ( {cocktails, deleteCocktail, onUpdateCocktail, reviews, setReviews} ) => {
   
 
 
   return(
-
-    <div>
+    
+    <Box className='box' sx={{flexGrow:1}}>
       <h2>-Your Drinks-</h2>
+      <Grid container spacing={2} rowSpacing={1}>
+    {/* <div className='cocktails-list'> */}
+      <Grid item xs={6}>
+      <Item>
       {cocktails.map(cocktail => {
         let eachReview = reviews.filter(review => {
           if (review.cocktail_id === cocktail.id) {
@@ -29,34 +41,11 @@ const CocktailList = ( {cocktails, deleteCocktail, onUpdateCocktail, reviews, se
         />
         )
       })}
-    </div>
-
-
-
-    // <Container fluid="md" className='card-container'>
-
-    //   <Row md={5} >
-
-        // {cocktails.map(cocktail => {
-        //   let eachReview = reviews.filter(review => {
-        //     if (review.cocktail_id === cocktail.id) {
-        //     return review
-        //   } return "" 
-        //   })
-
-    //       return(
-    //         <Col key={cocktail.id}>
-    //           <CocktailCard  
-    //             cocktail={cocktail} 
-    //             deleteCocktailCard={deleteCocktailCard}  
-    //             eachReview={eachReview}
-    //             />
-    //         </Col>)
-    //     })}
-
-    //   </Row>
-      
-    // </Container>
+      </Item>
+      </Grid>
+    {/* </div> */}
+    </Grid>
+    </Box>
   )
 };
 

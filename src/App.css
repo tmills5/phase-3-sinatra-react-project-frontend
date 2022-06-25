@@ -1,5 +1,7 @@
 body {
-    height: 100vh;
+    height: 100%;
+    background-image: linear-gradient(rgb(39, 33, 33), rgb(50, 50, 169));
+    background-repeat: no-repeat;
 }
 
 .navbar {
@@ -15,7 +17,7 @@ footer {
     width: 100%
 }
 
-.card-button {
+/* .card-button {
     margin: 5px;
     
 }
@@ -30,4 +32,46 @@ input {
 
 img {
     max-width: 200px;
+} */
+.card-container {
+    max-width: 400px;
 }
+.card {
+    background-color: rgb(214, 231, 245);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: 20px;
+    text-align: center;
+  }
+
+  img {
+      width: 100%;
+  }
+  
+  .title {
+    color: grey;
+    font-size: 18px;
+  }
+  
+  button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 60%;
+    font-size: 18px;
+  }
+  
+  a {
+    text-decoration: none;
+    font-size: 22px;
+    color: black;
+  }
+  
+  button:hover, a:hover {
+    opacity: 0.7;
+  }

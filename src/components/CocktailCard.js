@@ -1,6 +1,8 @@
-import { Reviews } from '@mui/icons-material';
+
 import React, { useState } from 'react';
 import EditCocktailForm from './EditCocktailForm';
+import {Button} from '@mui/material';
+
 
 
 
@@ -55,21 +57,28 @@ const CocktailCard = ( {cocktail, deleteCocktail, onUpdateCocktail, eachReview, 
 
 
   return( 
-    <div>
+
+
+    <div className="card-container">
       {isEditing ? (
         <EditCocktailForm
         cocktail={cocktail}
         onUpdateCocktail={handleCocktailUpdate}
       />
       ) : (
-        <div>
-          --- {cocktail_name} ---
+        <div className='card'>
+          
             <img 
             src={image || "https://images.pexels.com/photos/1283219/pexels-photo-1283219.jpeg?auto=compress&cs=tinysrgb&w=1600"} 
-            alt="drink pic" /> 
-            {comment}
-            <button onClick={()=> setIsEditing((isEditing)=> !isEditing)}>Edit</button>
-            <button onClick={handleDelete}>Delete</button>
+            alt="drink pic" 
+            /> 
+
+            <h1>{cocktail_name}</h1>
+            <p className="comment">{comment}</p>
+            
+
+            <Button variant="contained" color="secondary" onClick={()=> setIsEditing((isEditing)=> !isEditing)}>Edit</Button>
+            <p><Button variant="outlined" color="error" size="medium"onClick={handleDelete}>Delete</Button></p>
             <form onSubmit={handleReviewSubmit}>
               <input type="text" placeholder="Add Review..." value={newComment} onChange={(e)=>setNewComment(e.target.value)}/>
             </form>
