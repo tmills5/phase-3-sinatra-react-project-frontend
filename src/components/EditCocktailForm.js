@@ -21,7 +21,7 @@ const EditCocktailForm = ({ cocktail, onUpdateCocktail }) => {
     })
       .then((r) => r.json())
       .then((updatedCocktail) => {
-        console.log(updatedCocktail)
+        //console.log(updatedCocktail)
         onUpdateCocktail(updatedCocktail)
       })
   }

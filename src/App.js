@@ -1,7 +1,6 @@
-import { SettingsBackupRestoreSharp } from "@mui/icons-material";
 import React, { useEffect, useState } from "react";
 import './App.css';
-
+import Header from "./components/Header";
 import CocktailsPage from "./components/CocktailsPage";
 
 
@@ -41,7 +40,7 @@ const getReviews = () => {
 
   return (
     <div className="App">
-      <h1 style={{textAlign: 'center'}}>Cocktail Companion</h1>
+      <Header />
       <CocktailsPage 
         cocktails={cocktails}
         setCocktails={setCocktails}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import NewCocktail from "./NewCocktail";
 import CocktailList from "./CocktailList";
 
@@ -24,7 +24,7 @@ const CocktailsPage = ( {cocktails, setCocktails, reviews, setReviews} ) => {
 
     return(
         <div className="App">
-            <NewCocktail cocktails={cocktails} setCocktails={setCocktails}/>
+          <NewCocktail cocktails={cocktails} setCocktails={setCocktails} />
             <CocktailList
                 cocktails={cocktails}
                 reviews={reviews}

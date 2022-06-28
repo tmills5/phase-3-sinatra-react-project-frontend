@@ -75,13 +75,21 @@ const CocktailCard = ( {cocktail, deleteCocktail, onUpdateCocktail, eachReview, 
 
             <h1>{cocktail_name}</h1>
             <p className="comment">{comment}</p>
-            
-
-            <Button variant="contained" color="secondary" onClick={()=> setIsEditing((isEditing)=> !isEditing)}>Edit</Button>
-            <p><Button variant="outlined" color="error" size="medium"onClick={handleDelete}>Delete</Button></p>
-            <form onSubmit={handleReviewSubmit}>
-              <input type="text" placeholder="Add Review..." value={newComment} onChange={(e)=>setNewComment(e.target.value)}/>
+            <form  onSubmit={handleReviewSubmit}>
+              <input
+              className='review-input'
+              type="text"
+              placeholder="Add Review..." 
+              value={newComment} 
+              onChange={(e)=>setNewComment(e.target.value)}
+              />
             </form>
+
+            <hr/>
+
+            <Button variant="contained" color="primary" onClick={()=> setIsEditing((isEditing)=> !isEditing)}>Edit</Button>
+            <Button variant="outlined" color="error" size="medium"onClick={handleDelete}>Delete</Button>
+            
         </div>
       )}
     </div>

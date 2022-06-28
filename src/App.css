@@ -1,58 +1,66 @@
 body {
     height: 100%;
-    background-image: linear-gradient(rgb(39, 33, 33), rgb(50, 50, 169));
-    background-repeat: no-repeat;
+    background-color: black;
 }
 
-.navbar {
-    position: relative;
-    overflow: hidden;
-
+.header {
+background-image: linear-gradient(white, grey);
+margin-bottom: 5px;
+padding: 5px;
 }
 
-
-footer {
-    position: fixed;
-    height: 10rem;
-    width: 100%
-}
-
-/* .card-button {
-    margin: 5px;
-    
+.review-input {
+  text-align: left;
 }
 
 input {
-    margin: 5px;
+  display: block;
+  width: 35rem;
+  margin: 10px;
+  text-align: center;
 }
 
-.card {
-    margin: 5px;
+.review-input {
+  width: 15rem;
 }
 
-img {
-    max-width: 200px;
-} */
-.card-container {
-    max-width: 400px;
+h2 {
+    text-align: center;
 }
+
+.card-parent {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 5px;
+    grid-row-gap: 10px;
+}
+
+
 .card {
-    background-color: rgb(214, 231, 245);
+    position: relative;
+    background-image: linear-gradient(white, grey);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     max-width: 300px;
     margin: 20px;
     text-align: center;
   }
 
+  li {
+    max-width: 600px;
+    list-style-position: outside;
+  }
+
   img {
-      width: 100%;
+      width: 90%;
+      margin: 10px;
   }
   
   .title {
     color: grey;
     font-size: 18px;
   }
-  
+
   button {
     border: none;
     outline: 0;
@@ -62,7 +70,7 @@ img {
     background-color: #000;
     text-align: center;
     cursor: pointer;
-    width: 60%;
+    width: 40%;
     font-size: 18px;
   }
   

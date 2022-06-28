@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {Button} from "@mui/material";
 
 const NewCocktail = ({cocktails, setCocktails}) => {
     const [newCocktailName, setNewCocktailName] = useState("");
@@ -23,10 +24,11 @@ const NewCocktail = ({cocktails, setCocktails}) => {
             },
             body: JSON.stringify(newCocktail)
         }
-console.log(configObj)
+//console.log(configObj)
         fetch("http://localhost:9292/cocktails", configObj)
           .then(response => response.json())
-          .then((newCocktail) => { console.log(newCocktail)
+          .then((newCocktail) => { 
+            //console.log(newCocktail)
             setCocktails([newCocktail, ...cocktails])
       
             setNewCocktailName("");
@@ -37,9 +39,19 @@ console.log(configObj)
       
     return(
         <form onSubmit={handleSubmit}>
-            <input type="text" placeholder="New Cocktail Name..." value={newCocktailName} onChange={(e)=> setNewCocktailName(e.target.value)}></input>
-            <input type="text" placeholder="New Cocktail Image..." value={newCocktailImage} onChange={(e)=> setNewCocktailImage(e.target.value)}></input>
-            <button type="submit" id="submit" name="Submit">Add</button>
+            <input 
+                type="text" 
+                placeholder="New Cocktail Name..." 
+                value={newCocktailName} 
+                onChange={(e)=> setNewCocktailName(e.target.value)}
+            />
+            <input 
+            type="text" 
+            placeholder="New Cocktail Image..." 
+            value={newCocktailImage} 
+            onChange={(e)=> setNewCocktailImage(e.target.value)} 
+            />
+            <Button type="submit" id="submit" name="Submit" variant="contained">Add</Button>
         </form>    
           );
 };
